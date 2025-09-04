@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>College Events</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preload" href="events.json" as="fetch" crossorigin="anonymous" />
+  <style> a.button { text-decoration: none; padding: 10px 12px; border-radius: 10px; display: inline-block; }</style>
+  <meta name="description" content="See upcoming college events, filter by category, and register." />
+  <meta name="color-scheme" content="dark light" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E🎓%3C/text%3E%3C/svg%3E">
+  
+</head>
+<body data-page="list">
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <a href="index.html">🎓 College Events</a>
+        <span class="pill">Public</span>
+      </div>
+      <div>
+        <a class="button secondary" href="admin.html">Admin</a>
+      </div>
+    </div>
+    <div class="container">
+      <div class="search-row">
+        <input id="search" placeholder="Search events: title, tags, location..." />
+        <select id="category"><option>Loading...</option></select>
+        <select id="when">
+          <option value="">All dates</option>
+          <option value="upcoming">Upcoming</option>
+          <option value="past">Past</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="grid" class="grid"></div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

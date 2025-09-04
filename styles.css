@@ -1,0 +1,162 @@
+/* Base styles */
+:root {
+  --bg: #0f1320;
+  --card: #151a2c;
+  --text: #e6e9f0;
+  --muted: #9aa4c7;
+  --accent: #6c8cff;
+  --accent-2: #18c6a3;
+  --danger: #ff6b6b;
+  --border: #2a3250;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+  background: radial-gradient(1200px 800px at 20% -10%, #1b2140 0%, var(--bg) 60%);
+  color: var(--text);
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(10, 14, 29, 0.8);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--border);
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.brand a { color: var(--text); text-decoration: none; }
+
+.pill {
+  font-size: 12px;
+  color: var(--accent-2);
+  border: 1px solid rgba(24, 198, 163, 0.3);
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.search-row {
+  display: grid;
+  grid-template-columns: 1fr 180px 160px;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+input, select, button, textarea {
+  background: #0e1222;
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 10px 12px;
+  border-radius: 10px;
+}
+
+input::placeholder { color: var(--muted); }
+
+button {
+  cursor: pointer;
+  transition: transform 0.12s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+button.primary { background: linear-gradient(135deg, var(--accent), #4a6cff); border-color: transparent; }
+button.secondary { background: #0e1222; }
+button.danger { background: #261216; border-color: #5a1f28; color: #ff9aa5; }
+
+button:hover { transform: translateY(-1px); }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.card {
+  background: linear-gradient(180deg, #151a2c 0%, #101626 100%);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 14px;
+  position: relative;
+}
+
+.card h3 { margin: 8px 0 6px; font-size: 18px; }
+.muted { color: var(--muted); font-size: 13px; }
+
+.badges { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+.badge { font-size: 11px; color: #a4b3ff; border: 1px solid #2b3a7a; padding: 2px 8px; border-radius: 999px; }
+
+.footer-row { display: flex; align-items: center; justify-content: space-between; margin-top: 12px; }
+
+.detail { max-width: 900px; margin: 24px auto; display: flex; flex-direction: column; gap: 20px; }
+.panel { background: #101626; border: 1px solid var(--border); border-radius: 16px; padding: 16px; }
+.panel h2 { margin: 6px 0 12px; }
+
+form .row { 
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 10px; 
+}
+form .row + .row { margin-top: 10px; }
+form .row.single { grid-template-columns: 1fr; }
+
+/* Make form inputs more responsive */
+form input, form textarea {
+  width: 100%;
+  min-width: 0; /* Prevent overflow */
+  box-sizing: border-box;
+}
+
+/* Increase notes textarea height */
+form textarea[name="notes"] {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Ensure form rows don't overflow on small screens */
+@media (max-width: 600px) {
+  form .row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  
+  .panel {
+    padding: 12px;
+  }
+}
+
+table { width: 100%; border-collapse: collapse; }
+td, th { padding: 10px; border-bottom: 1px solid var(--border); text-align: left; }
+tbody tr:hover { background: #0e1222; }
+
+.admin-controls { display: flex; gap: 8px; flex-wrap: wrap; }
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr; }
+  .search-row { grid-template-columns: 1fr; }
+}
+
+

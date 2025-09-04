@@ -1,0 +1,37 @@
+[
+  {
+    "id": "e1",
+    "title": "Tech Talk: Future of AI",
+    "category": "Talk",
+    "location": "Auditorium A",
+    "date": "2025-09-20",
+    "time": "15:00",
+    "capacity": 150,
+    "description": "A deep dive into current trends and future directions in AI across academia and industry.",
+    "tags": ["AI", "ML", "Innovation"]
+  },
+  {
+    "id": "e2",
+    "title": "Hackathon: Build for Good",
+    "category": "Competition",
+    "location": "Lab Block C",
+    "date": "2025-10-05",
+    "time": "09:00",
+    "capacity": 200,
+    "description": "24-hour hackathon focusing on solutions for social impact. Teams up to 4.",
+    "tags": ["Hackathon", "Social", "Coding"]
+  },
+  {
+    "id": "e3",
+    "title": "Cultural Night",
+    "category": "Cultural",
+    "location": "Open Air Theatre",
+    "date": "2025-10-15",
+    "time": "18:30",
+    "capacity": 500,
+    "description": "Music, dance, and performances celebrating diverse cultures across campus.",
+    "tags": ["Music", "Dance", "Festival"]
+  }
+]
+
+
