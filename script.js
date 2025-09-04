@@ -97,7 +97,7 @@ async function initListPage() {
       .sort((a, b) => new Date(a.date) - new Date(b.date));
 
     grid.innerHTML = filtered.map(e => `
-      <div class="card">
+      <div class="card clickable-event" data-event-id="${e.id}">
         <div class="badges">
           <span class="badge">${e.category}</span>
           ${e.tags?.slice(0, 2).map(t => `<span class="badge">${t}</span>`).join("") || ""}
@@ -115,7 +115,27 @@ async function initListPage() {
   qInput.addEventListener("input", render);
   catSelect.addEventListener("change", render);
   whenSelect.addEventListener("change", render);
+  
+  // Add click event listeners to event cards
+  function addCardClickListeners() {
+    document.querySelectorAll('.clickable-event').forEach(card => {
+      card.addEventListener('click', (e) => {
+        // Don't trigger if clicking on the View button or its children
+        if (e.target.closest('.button')) {
+          return;
+        }
+        
+        const eventId = card.getAttribute('data-event-id');
+        if (eventId) {
+          window.location.href = `event.html?id=${encodeURIComponent(eventId)}`;
+        }
+      });
+    });
+  }
+  
   render();
+  // Add click listeners after rendering
+  setTimeout(addCardClickListeners, 0);
 }
 
 function getQueryParam(key) {
